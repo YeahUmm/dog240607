@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 임다현 - 시멘틱태그 - 레이아웃 - p.370 - 24.06.07.금 </title>
+    <!-- 나눔고딕 -->
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* *-전체선택자 */
+        /* reset */
+        /* *{margin: 0; padding: 0;} */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        body {
+            font-family: 'Nanum Gothic', sans-serif;
+            /* 앞에 글자체가 우선순위 */
+            background-color: #f0f0f0;
+        }
+
+        /* header - 배경색, 글씨색, 안쪽여백, 글씨정렬 */
+        header {
+            background-color: #444444;
+            color: whitesmoke;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header a {
+            color: #fff;
+            /* text-decoration: none; */
+            /* 위에서 처리했기 때문에 없어도 괜찮음 */
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* 리스트 한줄로 나열하기. */
+        nav ul {
+            display: flex;
+            gap: 50px;
+            /* flex - 외부여백 */
+            justify-content: center;
+            /* center - 수평중앙정렬 */
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        /* 컨텐츠 영역 - section */
+        /* 안쪽여백, 상단하단 바깥여백 + 중앙정렬, 가로 사이즈 800 */
+        section {
+            max-width: 800px;
+            margin: 20px auto;
+            /* 마진; 바깥여백 . 상하20, 좌우 자동 */
+            padding: 20px;
+            /* 패딩; 안쪽여백 .  상하좌우 20 */
+            /* border: 1px solid rebeccapurple; */
+        }
+
+        section h2 {
+            font-size: 32px;
+            color: #444444;
+            text-align: center;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+
+        section article {
+            /* 배경색, 둥근사각형, 그림자 , 안쪽여백, 바깥여백, 하단여백*/
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* x, y, 흐림, 색+투명도 */
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+
+        section h3 {
+            font-size: 24px;
+            color: #444444;
+            margin-bottom: 30px;
+        }
+
+        article ul {
+            display: flex;
+            /* 디스플레이 플랙스가 있어야 아래에 있는 wrap과 gap 구조가 유지됨 */
+            width: 100%;
+            justify-content: space-between;
+            /* space-between : 정해진 범위 내 양쪽정렬과 비슷함. 끝과 끝을 맞춘 후 여백을 정함. */
+            /* justify-content: space-evenly; */
+            /* space-evenly : 양끝과 사진 사이의 여백이 같음 */
+            justify-content: space-around;
+            /* space-around : 양 끝에 조금의 여백을 남기고 남은 여백을 정함. */
+            flex-wrap: wrap;
+            /* wrap : 자동으로 다음 줄로 넘어감 */
+            gap: 10px;
+            /* gap : 여백 10px */
+        }
+
+        article ul li {
+            height: 250px;
+            list-style: none;
+            flex: 0 0 calc(25% - 15px);
+            /* flex-grow - 남는 공간 설정 (0 - 남는 공간 없음) */
+            /* flex-shrink - 얼마나 줄어드는지 (0 - 줄어들지 않음) */
+            /* flex-basis - 부모 크기에 따른 25% (여백은 15px) */
+            max-width: calc(25% - 15px);
+            /* calc = calculation의 약자 - 계산 */
+            /* ( )안의 연산 띄어쓰기 해야 정확히 적용 됨. (25%-15px)-적용안됨 */
+        }
+
+        section article ul li img {
+            width: 100%;
+            height: 100%;
+            border-radius: 8px;
+        }
+
+        /* text => 강아지특징 */
+        section article div {
+            /* border: 1px solid red; */
+            /* margin-top: 30px;
+            margin-bottom: 30px; */
+            margin: 30px 0 30px 0;
+            /* 마진 한 줄로 정리 /  상,오,하,왼 시계방향 순서 */
+        }
+
+        section article div p {
+            font-size: 14px;
+            color: #444444;
+            line-height: 1.6;
+            /* line-height - 행간. px단위로 잡으면 단위가 맞지 않음(글자가 겹침) */
+            /* 일반적으로 1.5 ~ 1.6 정도가 적당함. */
+        }
+
+        /* ai 버튼 */
+        /* a - 인라인태그, 사이즈변경 불가능 */
+        section article div a.ai {
+            padding: 10px 20px;
+            background-color: #444444;
+            color: #fff;
+            border-radius: 50px;
+            /* text-decoration: none; */
+            /* 위에서 처리했기 때문에 없어도 괜찮음 */
+            text-align: center;
+        }
+
+        section article div a.ai:hover {
+            opacity: 70%;
+            /* 투명도 조절 */
+        }
+
+        footer {
+            background-color: #444444;
+            color: whitesmoke;
+            padding: 15px;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 13px;
+        }
+
+        footer p a {
+            font-weight: bold;
+            color: #fff;
+        }
+
+        /* 최소사이즈 801px - pc구조 - 4단 - 기본 */
+
+        /* tablet 구조 - 2단*/
+        @media (max-width:1200px) {
+            article ul li {
+                flex: 1 1 calc(50% - 10px);
+                /* 2 columns */
+                max-width: calc(50% - 10px);
+                height: auto;
+            }
+        }
+
+        /* mobile 구조 - 1단 */
+        @media (max-width:700px) {
+
+            /* block menu */
+            nav ul {
+                display: block;
+                text-align: center;
+                flex-wrap: wrap;
+            }
+
+            nav li {
+                display: block;
+                margin: 15px 0;
+                /* 마진 상하15, 좌우0 */
+                padding-bottom: 10px;
+                border-bottom: 1px dotted rgba(255, 255, 255, 0.3);
+            }
+
+            article ul li {
+                flex: 1 1 100%;
+                max-width: 100%;
+                height: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- header logo (h1) + menu (nav) -->
+    <header>
+        <!-- h1{애완견의 종류} -->
+        <!-- logo  -->
+        <h1>애완견의 종류</h1>
+        <!-- menu (nav) -->
+        <!-- nav>ul>li*4>a{애완견의 종류} -->
+        <nav>
+            <ul>
+                <!-- <li><a href="https://www.naver.com">애완견의 종류</a></li> -->
+                <li><a href="#">애완견의 종류</a></li>
+                <li><a href="#">입양하기</a></li>
+                <li><a href="#">건강돌보기</a></li>
+                <li><a href="#">더불어살기</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- 컨텐츠 영역 -->
+    <!-- selection>h2+article>h3+p -->
+    <section>
+        <h2>활달한 강아지</h2>
+        <article>
+            <h3>요크셔테리어 (Yorkchire Terrier)</h3>
+            <!-- 사진 -->
+            <!-- ul>li>a>img -->
+            <ul>
+                <li><a href="#"><img src="./images-dog/1.jpg" alt="요크셔테리어1"></a></li>
+                <li><a href="#"><img src="./images-dog/2.jpg" alt="요크셔테리어2"></a></li>
+                <li><a href="#"><img src="./images-dog/3.jpg" alt="요크셔테리어3"></a></li>
+                <li><a href="#"><img src="./images-dog/4.jpg" alt="요크셔테리어4"></a></li>
+            </ul>
+            <div>
+                <p>1. 작은 체구: 요크셔테리어는 작은 체구를 가지고 있지만, 에너지가 넘치고 매우 활발합니다.</p>
+                <p>2. 똑똑하고 호기심이 많음: 이들은 매우 영리하며 호기심이 많아 새로운 것을 탐구하고 배우는 것을 좋아합니다. </p>
+                <p>3. 호위본능: 자신의 가족을 보호하려는 강한 본능이 있으며, 낯선 사람이나 다른 동물에게 경계심을 보일 수 있습니다.</p>
+            </div>
+            <!-- AI버튼 -->
+            <div>
+                <a href="#" class="ai"> AI 감정읽기 </a>
+            </div>
+        </article>
+        <!-- <hr> -->
+        <article>
+            <h3>비숑 프리제 (Bichon Frise)</h3>
+            <ul>
+                <li><a href="#"><img src="./images-dog/b1.jpg" alt="비숑프리제1"></a></li>
+                <li><a href="#"><img src="./images-dog/b2.jpg" alt="비숑프리제2"></a></li>
+                <li><a href="#"><img src="./images-dog/b3.jpg" alt="비숑프리제3"></a></li>
+                <li><a href="#"><img src="./images-dog/b4.jpg" alt="비숑프리제4"></a></li>
+            </ul>
+
+            <div>
+                <p>1. 사회적이고 친근함: 비숑 프리제는 매우 사회적이고 사람들과의 교류를 즐깁니다. 낯선 사람에게도 친근하게 다가가는 성격입니다.</p>
+                <p>2. 항상 긍정적임: 이들은 밝고 긍정적인 성격을 가지고 있어, 항상 기분이 좋은 것처럼 보입니다. </p>
+                <p>3. 튼튼한 체력: 작은 체구에 비해 체력이 좋아서 많은 활동을 필요로 하고, 긴 산책이나 놀이 시간을 즐깁니다.</p>
+            </div>
+            <!-- AI버튼 -->
+            <div>
+                <a href="#" class="ai"> AI 감정읽기 </a>
+            </div>
+        </article>
+        <!-- <hr> -->
+        <article>
+            <h3>파피용 (Papollon)</h3>
+            <ul>
+                <li><a href="#"><img src="./images-dog/p1.jpg" alt="파피용1"></a></li>
+                <li><a href="#"><img src="./images-dog/p2.jpg" alt="파피용2"></a></li>
+                <li><a href="#"><img src="./images-dog/p3.jpg" alt="파피용3"></a></li>
+                <li><a href="#"><img src="./images-dog/p4.jpg" alt="파피용4"></a></li>
+            </ul>
+
+            <div>
+                <p>1. 우아한 외모: 파피용은 나비 모양의 귀 때문에 이름이 붙었으며, 우아한 외모를 자랑합니다.</p>
+                <p>2. 활발하고 민첩함: 매우 활발하고 민첩하며, 높은 지능으로 다양한 트릭과 명령을 쉽게 배웁니다. </p>
+                <p>3. 대담하고 자신감 넘침: 작은 크기에도 불구하고 대담하고 자신감 넘치는 성격을 가지고 있습니다. 다른 강아지나 사람들과의 상호작용을 즐깁니다.</p>
+            </div>
+            <!-- AI버튼 -->
+            <div>
+                <a href="#" class="ai"> AI 감정읽기 </a>
+            </div>
+        </article>
+        <!-- <hr> -->
+    </section>
+    <footer>
+        <!-- &copy; 엔티티기호 -->
+        <p>
+            &copy;
+            <a href="mailto:dogdreamlandj@dogdreamlandj.com">
+                Dog Dreamlandj Corp.</a>
+            All rights reserved.
+            &lt; &gt;
+        </p>
+    </footer>
+</body>
+
+</html>
